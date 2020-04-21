@@ -27,3 +27,26 @@ def printListFromTailToHead(listNode):
         printListFromTailToHead(listNode.next)
         result_array.append(listNode.val)
     return result_array
+    
+#我的解法：
+1.
+class Solution:
+    # 返回从尾部到头部的列表值序列，例如[1,2,3]
+    def printListFromTailToHead(self, listNode):
+        # write code here
+        l = []
+        while listNode:
+            l.append(listNode.val)
+            listNode = listNode.next
+        return l[::-1]
+2.
+class Solution:
+    # 返回从尾部到头部的列表值序列，例如[1,2,3]
+    def printListFromTailToHead(self, listNode):
+        # write code here
+        l = []
+        head = listNode
+        while head:
+            l.insert(0, head.val)  #
+            head = head.next
+        return l
