@@ -40,7 +40,7 @@ def Clone(pHead):
         if pHead == None:
             return None
 
-        pTmp = pHead
+        pTmp = pHead   #pHead只是链表的头部地址
         while pTmp:
             node = RandomListNode(pTmp.label)
             node.next = pTmp.next
@@ -56,7 +56,7 @@ def Clone(pHead):
 
         # 断开原来的node和新node的连接
         pTmp = pHead
-        newHead = pHead.next
+        newHead = pHead.next   ##保存复制链表后第二个元素的地址
         pNewTmp = pHead.next
         while pTmp:
             pTmp.next = pTmp.next.next
@@ -65,7 +65,7 @@ def Clone(pHead):
                 pNewTmp = pNewTmp.next
             pTmp = pTmp.next
 
-        return newHead （这里不太懂)
+        return newHead 
 
 p = RandomListNode(1)
 p.next = RandomListNode(2)
