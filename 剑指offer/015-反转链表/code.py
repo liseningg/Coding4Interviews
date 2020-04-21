@@ -21,3 +21,19 @@ def ReverseList(pHead):
     # head->4->3->2->1->5
     #                p  tp
     
+我的代码
+class Solution:
+    # 返回ListNode
+    def ReverseList(self, pHead):
+        # write code here
+        if pHead == None or pHead.next == None:
+            return pHead
+        pre = None
+        cur = pHead
+        while cur!=None:
+            temp = cur.next
+            cur.next = pre
+            pre = cur
+            cur = temp
+            
+        return pre
