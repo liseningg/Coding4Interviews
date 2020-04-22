@@ -63,3 +63,35 @@ class Solution(object):
                 pTmp1 = pTmp1.next
                 pTmp2 = pTmp2.next
             return pTmp1
+
+更易理解的方法：
+    def FindFirstCommonNode(self, head1, head2):
+        if not head1 or not head2:
+            return None
+ 
+        p1, p2= head1, head2
+        length1 = length2 = 0
+ 
+        while p1:
+            length1 += 1
+            p1 = p1.next
+        while p2:
+            length2 += 1
+            p2 = p2.next
+ 
+        if length1 > length2:
+            while length1 - length2:
+                head1 = head1.next
+                length1 -= 1
+        else:
+            while length2 - length1:
+                head2 = head2.next
+                length2 -= 1
+ 
+        while head1 and head2:
+            if head1 is head2:
+                return head1
+            head1 = head1.next
+            head2 = head2.next
+ 
+        return None
