@@ -21,3 +21,45 @@ class Solution(object):
                 pHead1 = pHead1.next
                 pHead2 = pHead2.next
         return None
+
+
+我的解法：
+    def FindFirstCommonNode(self, pHead1, pHead2):
+        # write code here
+                # write code here
+        if not pHead1 or not pHead2:
+            return None
+        pTmp1 = pHead1
+        pTmp2 = pHead2
+        while pTmp1 and pTmp2:
+            if pTmp1 == pTmp2:
+                return pTmp1
+            pTmp1 = pTmp1.next
+            pTmp2 = pTmp2.next
+        if pTmp1:
+            k = 0
+            while pTmp1:
+                pTmp1 = pTmp1.next
+                k += 1
+            pTmp1 = pHead1
+            pTmp2 = pHead2
+            for _ in range(k):
+                pTmp1 = pTmp1.next
+            while pTmp1 != pTmp2:
+                pTmp1 = pTmp1.next
+                pTmp2 = pTmp2.next
+            return pTmp1
+        
+        if pTmp2:
+            k = 0
+            while pTmp2:
+                pTmp2 = pTmp2.next
+                k += 1
+            pTmp1 = pHead1
+            pTmp2 = pHead2
+            for _ in range(k):
+                pTmp2 = pTmp2.next
+            while pTmp1 != pTmp2:
+                pTmp1 = pTmp1.next
+                pTmp2 = pTmp2.next
+            return pTmp1
