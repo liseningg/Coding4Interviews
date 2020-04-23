@@ -26,3 +26,14 @@ def preorder(root):
         print(root.val)
         preorder(root.right)
 preorder(reConstructBinaryTree([1,2,3,4,5,6,7],[3,2,4,1,6,5,7]))
+
+我的解法
+    def reConstructBinaryTree(self, pre, tin):
+        # write code here
+        if len(pre) == 0:
+            return
+        root = TreeNode(pre[0])
+        pos = tin.index(pre[0])
+        root.left = self.reConstructBinaryTree(pre[1:pos+1],tin[0:pos])
+        root.right = self.reConstructBinaryTree(pre[pos+1:],tin[pos+1:])
+        return root
