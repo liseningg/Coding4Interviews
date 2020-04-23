@@ -9,15 +9,15 @@ class Solution:
         # write code here
         head = ListNode(0)
         head.next = pHead
-        pre = head
-        p = head.next
-        while p and p.next:
-            if p.next.val == p.val:
-                while p.next and p.next.val == p.val:
-                    p.next = p.next.next
-                pre.next = p.next
-                p = pre.next
+        p = head
+        q = head.next
+        while q and q.next:
+            if q.next.val == q.val:
+                while q.next and q.next.val == q.val:
+                    q.next = q.next.next
+                p.next = q.next
+                q = p.next
             else:
-                pre = p
-                p = p.next
+                p = q
+                q = q.next
         return head.next
