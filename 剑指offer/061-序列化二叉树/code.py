@@ -42,3 +42,40 @@ root.left.right = TreeNode(5)
 
 
 print(Solution().Serialize(root))
+
+
+
+我的解法
+class Solution:
+    # 序列化
+    def Serialize(self, root):
+        retList = []
+        def preOrder(root):
+            if root == None:
+                retList.append('#')
+                return
+            retList.append(str(root.val))
+            preOrder(root.left)
+            preOrder(root.right)
+
+        preOrder(root)
+        return ' '.join(retList)
+
+    # 反序列化
+    def Deserialize(self, s):
+        retList = s.split()
+        def dePreOrder():
+            if retList == []:
+                return None
+            rootVal = retList.pop(0)
+            if rootVal == '#':
+                return None
+            node = TreeNode(int(rootVal))
+            leftNode = dePreOrder()
+            rightNode = dePreOrder()
+            node.left = leftNode
+            node.right = rightNode
+            return node
+
+        pRoot = dePreOrder()
+        return pRoot
