@@ -37,7 +37,7 @@ class Solution:
         self.assist = []
     def push(self, node):
         min = self.min()
-        if node < min or not min:
+        if node < min or not min:  #刚开始执行push的时候min是没有值的，如果不加or not min条件的话if语句不成立，则不能入栈assist
             self.assist.append(node)
         else:
             self.assist.append(min)
