@@ -17,3 +17,13 @@ class Solution:
                 continue
             res.append(num[queue[0]])
         return res
+
+做了等于没做版
+# -*- coding:utf-8 -*-
+class Solution:
+    def maxInWindows(self, num, size):
+        res, i = [], 0
+        while size > 0 and i + size - 1 < len(num):
+            res.append(max(num[i:i + size]))
+            i += 1
+        return res
