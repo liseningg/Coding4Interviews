@@ -29,4 +29,29 @@ class MinStack(object):
     def min(self):
         # write code here
         return self.min_stack[-1]
-        
+    
+我的解法        
+class Solution:
+    def __init__(self):
+        self.item = []
+        self.assist = []
+    def push(self, node):
+        min = self.min()
+        if node < min or not min:
+            self.assist.append(node)
+        else:
+            self.assist.append(min)
+        # write code here
+        self.item.append(node) 
+    def pop(self):
+        if self.item != []:
+            self.assist.pop()
+            return self.item.pop()
+        # write code here
+    def top(self):
+        # write code here
+        if self.item != []:
+            return self.item[len(self.item) - 1]
+    def min(self):
+        if self.item:
+            return self.assist[-1]
