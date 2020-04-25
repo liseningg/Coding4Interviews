@@ -19,6 +19,7 @@ print(GetNumberOfK([3,3,3, 4],3))
 
 我的解法
 1（易理解）
+```
 # -*- coding:utf-8 -*-
 class Solution:
     def GetNumberOfK(self, data, k):
@@ -48,7 +49,7 @@ class Solution:
                 r = mid -1
         right = r
         return right-left+1
-    
+```
   
 2
 # -*- coding:utf-8 -*-
