@@ -41,3 +41,15 @@ class Solution:
             if d[i]==1:   #O(1)
                 return s.index(i)
         return -1
+    
+#方法三：python简单解法
+class Solution:
+    def FirstNotRepeatingChar(self, s):
+        # write code here
+        if len(s)<0:
+            return -1
+        for i in s:
+            if s.count(i)==1:
+                return s.index(i)
+                break
+        return -1
