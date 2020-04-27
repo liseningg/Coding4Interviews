@@ -11,6 +11,7 @@ def FirstNotRepeatingChar(s):
 print(FirstNotRepeatingChar('abac'))
 
 
+我的解法
 #方法一：利用数组自己建立个哈希表
 class Solution:
     def FirstNotRepeatingChar(self, s):
