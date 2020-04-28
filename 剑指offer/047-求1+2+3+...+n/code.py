@@ -23,6 +23,6 @@ print(Solution().Sum_Solution(10))
 class Solution:
     def Sum_Solution(self, n):
         ans = n
-        tmp = ans and self.Sum_Solution(n - 1)
+        tmp = ans and self.Sum_Solution(n - 1)   #and 若两个数都不为0，则返回后面那个数，若其中有一个为0，返回0
         ans += tmp
         return ans
