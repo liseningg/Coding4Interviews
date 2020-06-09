@@ -38,3 +38,40 @@ p.next.next = RandomListNode(3)
 p.next.next.next = RandomListNode(4)
 p.next.next.next.next = RandomListNode(5)
 print(Clone(p))
+
+
+class Solution:
+    # 返回 RandomListNode
+    def Clone(self, pHead):
+        # 深拷贝也可以
+        # return copy.deepcopy(pHead)
+
+        # 复制一个一样的node，并且添加到之前的链表的每一个node后面
+        if pHead == None:
+            return None
+
+        pTmp = pHead
+        while pTmp:
+            node = RandomListNode(pTmp.label)
+            node.next = pTmp.next
+            pTmp.next = node
+            pTmp = node.next  #将指针移动到下一个被复制的节点
+
+        # 实现新建的node的random的指向
+        pTmp = pHead
+        while pTmp:
+            if pTmp.random:
+                pTmp.next.random = pTmp.random.next
+            pTmp = pTmp.next.next
+
+        # 断开原来的node和新node的连接
+        pTmp = pHead
+        newHead = pHead.next #保存复制链表后的第二个元素的地址
+        pNewTmp = pHead.next
+        while pTmp:
+            pTmp.next = pTmp.next.next
+            if pNewTmp.next:
+                pNewTmp.next = pNewTmp.next.next
+                pNewTmp = pNewTmp.next
+            pTmp = pTmp.next
+        return newHead
