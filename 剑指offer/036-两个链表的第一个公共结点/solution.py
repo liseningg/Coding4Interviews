@@ -95,3 +95,21 @@ class Solution(object):
             head2 = head2.next
  
         return None
+
+
+有个思路，不需要存储链表的额外空间。也不需要提前知道链表的长度。看下面的链表例子：
+0-1-2-3-4-5-null
+a-b-4-5-null
+代码的ifelse语句，对于某个指针p1来说，其实就是让它跑了连接好的的链表，长度就变成一样了。
+如果有公共结点，那么指针一起走到末尾的部分，也就一定会重叠。看看下面指针的路径吧。
+p1： 0-1-2-3-4-5-null(此时遇到ifelse)-a-b-4-5-null
+p2:  a-b-4-5-null(此时遇到ifelse)0-1-2-3-4-5-null
+因此，两个指针所要遍历的链表就长度一样了！
+class Solution:
+    def FindFirstCommonNode(self, pHead1, pHead2):
+        p1,p2=pHead1,pHead2
+        while p1!=p2:
+            p1 = p1.next if p1 else pHead2
+            p2 = p2.next if p2 else pHead1
+        return p1
+    
