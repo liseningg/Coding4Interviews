@@ -42,7 +42,7 @@ class Solution:
         l,r = 0,len(data)-1
 
         while l<r:
-            mid = (l+r+1)/2
+            mid = (l+r+1)/2    #右边点不一样， 右边需要落到偏右边一个位置，如果不加1的话，可能会漏掉一个数
             if data[mid] <= k:
                 l = mid
             else:
