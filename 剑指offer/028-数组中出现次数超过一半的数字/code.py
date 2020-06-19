@@ -71,3 +71,17 @@ def MoreThanHalfNum_Solution(self, numbers):
         return 0
  
 
+note：
+
+python的sorted函数使用Timesort算法进行排序，平均时间复杂度为O(n*logn)
+出现次数大于数组长度一半的元素，在排序后的数组中间位置
+方法： 找出排序后在数组中间位置地元素并计算其出现次数，若次数超过数组长度地一半则返回它，否则返回0.
+
+# -*- coding:utf-8 -*-\
+class Solution:
+    def MoreThanHalfNum_Solution(self, numbers):
+        # 出现次数大于数组长度一半的元素，在排序后的数组中间位置
+        n = len(numbers)
+        mostElement = sorted(numbers)[n//2]
+        cnt = numbers.count(mostElement)
+        return mostElement if cnt > n//2 else 0
