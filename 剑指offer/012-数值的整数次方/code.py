@@ -17,3 +17,26 @@ def Power(base, exponent):
     return res if flag else 1.0/res
 
 print(Power(2, 1))
+
+
+# -*- coding:utf-8 -*-
+class Solution:
+    def Power(self, base, exponent):
+        # write code here
+        result = 1
+        if base == 0:
+            return 0
+        if exponent == 0:
+            return 1
+        if exponent < 0:
+            for i in range(-exponent):
+                result = base * result
+            return 1 / result
+        if exponent > 0:
+            for i in range(exponent):
+                result = base * result
+        return result
+          
+           
+        
+        
