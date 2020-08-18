@@ -58,3 +58,22 @@ class Solution:
             dp[i] = max(dp[i-1]+array[i],array[i])
          
         return max(dp)
+
+
+ -*- coding:utf-8 -*-
+class Solution:
+    def FindGreatestSumOfSubArray(self, array):
+        # write code here
+        max_nums = [-1] * len(array)
+        max_nums[0] = array[0]
+        max_num = array[0]
+        for i in range(1,len(array)):
+            
+            if max_num + array[i] > array[i]:
+                max_nums[i] = max_num + array[i]
+                max_num = max_num + array[i]
+            else:
+                max_nums[i] = array[i]
+                max_num = array[i]
+        return max(max_nums)
+             
